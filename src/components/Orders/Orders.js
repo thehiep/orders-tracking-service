@@ -1,7 +1,8 @@
 import classes from './Orders.module.css';
-import { Fragment } from 'react';
+import { Fragment, Component } from 'react';
 import Card from '../UI/Card/Card';
 import OrderItem from './OrderItem/OrderItem'
+import { render } from '@testing-library/react';
 
 const OrdersList = [
     {
@@ -39,19 +40,27 @@ const OrdersList = [
         updatedTime: new Date()
     },
 ]
-const orders = () => {
-    const orderList = OrdersList.map(item => <OrderItem {...item} />);
+class Orders extends Component {
 
-    return (
-        <section className={classes.orders}>
+    componentDidMount() {
+        // get data from firebase.
 
-            <ul>
-                <Card>
-                    {orderList}
-                </Card>
-            </ul>
-        </section>
-    );
+    }
+z
+    render() {
+        const orderList = OrdersList.map(item => <OrderItem {...item} />);
+        return (
+            <section className={classes.orders}>
+
+                <ul>
+                    <Card>
+                        {orderList}
+                    </Card>
+                </ul>
+            </section>
+        )
+    }
+
 }
 
-export default orders;
+export default Orders;
